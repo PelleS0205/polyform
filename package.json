@@ -1,0 +1,32 @@
+{
+	"name": "polyform",
+	"version": "0.1.0",
+	"type": "module",
+	"description": "",
+	"exports": {
+		"./core": {
+			"types": "./dist/core/index.d.ts",
+			"import": "./dist/core/index.js"
+		},
+		"./formats/*": {
+			"types": "./dist/formats/*.d.ts",
+			"import": "./dist/formats/*.js"
+		}
+	},
+	"scripts": {
+		"dev": "tsdown --watch"
+	},
+	"keywords": [],
+	"author": "Pelle Stormark",
+	"devEngines": {
+		"packageManager": {
+			"name": "pnpm",
+			"version": "^11.5.2",
+			"onFail": "download"
+		}
+	},
+	"devDependencies": {
+		"tsdown": "^0.22.2",
+		"typescript": "^6.0.3"
+	}
+}
