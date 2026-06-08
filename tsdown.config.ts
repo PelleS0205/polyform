@@ -7,6 +7,7 @@ export default defineConfig({
 		"formats/yaml": "src/formats/yaml.ts",
 	},
 	format: ["esm"],
+	outExtensions: () => ({ js: ".mjs", dts: ".d.mts" }),
 	dts: true,
 	clean: true,
 });
