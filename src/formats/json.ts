@@ -1,35 +1,36 @@
 import { fromNative, toNative } from "../core/bridge.js";
-import type { PolyformPlugin } from "../core/types.js";
+import type { ASTNode, PolyformPlugin } from "../core/types.ts";
 
 export interface JsonOptions {
-	/*
-	 * Number of spaces (or a specific string like "\t") to use for
-	 * indentation during the stringification phase.
-	 */
-	indent?: number | string;
+  /*
+   * Number of spaces (or a specific string like "\t") to use for
+   * indentation during the stringification phase.
+   */
+  indent?: number | string;
 }
 
-export function json(pluginOptions: JsonOptions = {}): PolyformPlugin {
-	const indent = pluginOptions.indent ?? 2;
+export function json(
+  pluginOptions: JsonOptions = {},
+): PolyformPlugin<string, string> {
+  const indent = pluginOptions.indent ?? 2;
 
-	return {
-		name: "json",
+  return {
+    name: "json",
 
-		parse: (input: string) => {
-			try {
-				const vanillaGraph = JSON.parse(input);
+    parse: (input: string) => {
+      try {
+        const vanillaGraph = JSON.parse(input);
 
-				return fromNative(vanillaGraph);
-			} catch (error: any) {
-				throw new Error(
-					`JSON Parse Error: ${error.message}`,
-				);
-			}
-		},
+        return fromNative(vanillaGraph);
+      } catch (e) {
+        const err = e as Error;
+        throw new Error(`JSON Parse Error: ${err.message}`);
+      }
+    },
 
-		serialize: (ast) => {
-			const vanillaGraph = toNative(ast);
-			return JSON.stringify(vanillaGraph, null, indent);
-		},
-	};
+    serialize: (ast: ASTNode): string => {
+      const vanillaGraph = toNative(ast);
+      return JSON.stringify(vanillaGraph, null, indent);
+    },
+  };
 }

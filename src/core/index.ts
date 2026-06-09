@@ -16,67 +16,59 @@
  */
 
 import {
-	PolyformError,
-	PolyformParseError,
-	PolyformSerializeError,
-} from "./errors.ts";
+  PolyformError,
+  PolyformParseError,
+  PolyformSerializeError,
+} from "./errors.js";
 import { parsers, serializers } from "./registry.js";
-import type { ASTNode, PolyformPlugin } from "./types.js";
+import type { ASTNode, PolyformPlugin } from "./types.ts";
 
-export function use(plugin: PolyformPlugin): void {
-	if (plugin.parse) {
-		parsers.set(plugin.name, plugin.parse);
-	}
-
-	if (plugin.serialize) {
-		serializers.set(plugin.name, plugin.serialize);
-	}
+export function use(plugin: PolyformPlugin<any, any>): void {
+  if (plugin.parse) {
+    parsers.set(plugin.name, plugin.parse);
+  }
+  if (plugin.serialize) {
+    serializers.set(plugin.name, plugin.serialize);
+  }
 }
 
-export function convert(input: string) {
-	return {
-		from(sourceFormat: string) {
-			return {
-				to(targetFormat: string): string {
-					const parser =
-						parsers.get(sourceFormat);
-					const serializer =
-						serializers.get(targetFormat);
+export function convert<TFrom, TTo>(input: TFrom) {
+  return {
+    from(sourceFormat: string) {
+      return {
+        to(targetFormat: string): TTo {
+          const parser = parsers.get(sourceFormat);
 
-					if (!parser) {
-						throw new PolyformError(
-							`Parser for format "${sourceFormat}" is not registered.`,
-						);
-					}
+          const serializer = serializers.get(targetFormat);
 
-					if (!serializer) {
-						throw new PolyformError(
-							`Serializer for "${targetFormat}" is not registered.`,
-						);
-					}
+          if (!parser) {
+            throw new PolyformError(
+              `Parser for format "${sourceFormat}" is not registered.`,
+            );
+          }
 
-					let intermediateAST: ASTNode;
-					try {
-						intermediateAST = parser(input);
-					} catch (error: any) {
-						throw new PolyformParseError(
-							sourceFormat,
-							error,
-						);
-					}
+          if (!serializer) {
+            throw new PolyformError(
+              `Serializer for "${targetFormat}" is not registered.`,
+            );
+          }
 
-					try {
-						return serializer(
-							intermediateAST,
-						);
-					} catch (error: any) {
-						throw new PolyformSerializeError(
-							targetFormat,
-							error,
-						);
-					}
-				},
-			};
-		},
-	};
+          let intermediateAST: ASTNode;
+          try {
+            intermediateAST = parser(input);
+          } catch (e) {
+            const error = e as Error;
+            throw new PolyformParseError(sourceFormat, error);
+          }
+
+          try {
+            return serializer(intermediateAST);
+          } catch (e) {
+            const error = e as Error;
+            throw new PolyformSerializeError(targetFormat, error);
+          }
+        },
+      };
+    },
+  };
 }
