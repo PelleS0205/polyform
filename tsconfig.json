@@ -1,6 +1,8 @@
 {
   "compilerOptions": {
-    "target": "es2024",
+    "declaration": true,
+    "declarationMap": true,
+    "target": "esnext",
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "strict": true,

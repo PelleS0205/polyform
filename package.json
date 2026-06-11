@@ -2,9 +2,14 @@
   "name": "polyform",
   "version": "0.1.0",
   "type": "module",
-  "description": "",
+  "description": "A minimalist data conversion framework for text and binary formats.",
+  "main": ".dist/core/index.mjs",
+  "types": ".dist/core/index.mts",
+  "files": [
+    "dist"
+  ],
   "exports": {
-    "./core": {
+    ".": {
       "types": "./dist/core/index.d.mts",
       "import": "./dist/core/index.mjs"
     },
@@ -15,11 +20,15 @@
     "./formats/yaml": {
       "types": "./dist/formats/yaml.d.mts",
       "import": "./dist/formats/yaml.mjs"
+    },
+    "./formats/cbor": {
+      "types": "./dist/formats/cbor.d.mts",
+      "import": "./dist/formats/cbor.mjs"
     }
   },
   "scripts": {
-    "dev": "tsdown --watch",
-    "build": "tsdown"
+    "build": "tsdown",
+    "prepublishOnly": "pnpm build"
   },
   "keywords": [],
   "author": "Pelle Stormark",

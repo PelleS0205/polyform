@@ -23,7 +23,11 @@ import {
 import { parsers, serializers } from "./registry.js";
 import type { ASTNode, PolyformPlugin } from "./types.ts";
 
-export function use(plugin: PolyformPlugin<any, any>): void {
+/**
+ * Registers a format plugin to make it available in the conversion pipeline.
+ * @param plugin The format plugin containing a parser, serializer, or both.
+ */
+export function use(plugin: PolyformPlugin): void {
   if (plugin.parse) {
     parsers.set(plugin.name, plugin.parse);
   }
@@ -32,11 +36,29 @@ export function use(plugin: PolyformPlugin<any, any>): void {
   }
 }
 
-export function convert<TFrom, TTo>(input: TFrom) {
+/**
+ * Initializes a transformation sequence for a data payload.
+ *
+ * ```ts
+ * convert(input).from(source).to(target)
+ * ```
+ *
+ * @param input The source string or Uint8Array buffer.
+ */
+export function convert(input: string | Uint8Array) {
   return {
+    /**
+     * Defines the origin format of your data.
+     * @param sourceFormat The format name (e.g., "json").
+     */
     from(sourceFormat: string) {
       return {
-        to(targetFormat: string): TTo {
+        /**
+         * Executes the conversion and outputs the target format.
+         * @param targetFormat The format you want to convert into.
+         * @returns A strictly typed string or Uint8Array based on the target.
+         */
+        to(targetFormat: string): string | Uint8Array {
           const parser = parsers.get(sourceFormat);
 
           const serializer = serializers.get(targetFormat);

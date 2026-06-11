@@ -1,6 +1,12 @@
 # Polyform
 
-Polyform is a high-performance data transformation library. 
+Polyform is a minimalist data conversion framework for text and binary formats
+
+## Features
+
+* **Format Agnostic:** Out-of-the-box support for JSON, YAML, and CBOR.
+* **Fluent Chaining API:** Clean, intuitive syntax using convert(data).from('json').to('cbor').
+* **Pluggable Registry:** Simple, decoupled plugin system allowing registration of custom parsers and serializers in just a few lines of code.
 
 ## Installation
 
@@ -26,9 +32,8 @@ const output = convert(input).from("json").to("yaml");
 
 ## Licensing
 
-Polyform is dual-licensed. 
-
-See the `LICENSE` file for details.
+This project is licensed under the GNU General Public License v3.0 – see the LICENSE file for details.
 
 ### Commercial Use
-For commercial licensing inquiries, please reach out privately via **GitHub Discussions** under the repository's Discussions tab.
+
+This project is dual-licensed. If your organization requires a commercial license to bypass the open-source requirements of the AGPLv3, please open a private inquiry via **GitHub Discussions**.

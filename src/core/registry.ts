@@ -1,10 +1,14 @@
 import type { ASTNode } from "./types.js";
 
-export type ParserFn<TInput> = (input: TInput, options?: unknown) => ASTNode;
-export type SerializerFn<TOutput> = (
+export type ParserFn = (
+  input: string | Uint8Array,
+  options?: unknown,
+) => ASTNode;
+
+export type SerializerFn = (
   ast: ASTNode,
   options?: unknown,
-) => TOutput;
+) => string | Uint8Array;
 
-export const parsers = new Map<string, ParserFn<any>>();
-export const serializers = new Map<string, SerializerFn<any>>();
+export const parsers = new Map<string, ParserFn>();
+export const serializers = new Map<string, SerializerFn>();

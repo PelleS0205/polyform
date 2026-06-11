@@ -48,8 +48,15 @@ export interface LiteralNode extends BaseNode {
   value: string | number | boolean | null | bigint | Uint8Array;
   raw: string;
 }
-export interface PolyformPlugin<TInput, TOutput> {
+export interface PolyformPlugin {
   name: string;
-  parse?: ParserFn<TInput>;
-  serialize?: SerializerFn<TOutput>;
+  parse?: ParserFn;
+  serialize?: SerializerFn;
 }
+
+export type FormatMap = {
+  json: { in: string; out: string };
+  cbor: { in: Uint8Array; out: Uint8Array };
+  yaml: { in: string; out: string };
+  // add other built-ins...
+};

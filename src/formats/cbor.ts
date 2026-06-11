@@ -2,11 +2,16 @@ import { decode, encode } from "cbor2";
 import { fromNative, toNative } from "../core/bridge.js";
 import type { ASTNode, PolyformPlugin } from "../core/types.ts";
 
-export function cbor(): PolyformPlugin<Uint8Array, Uint8Array> {
+/**
+ * Creates a CBOR format plugin for the Polyform pipeline.
+ *
+ * @returns A configured PolyformPlugin instance for CBOR data.
+ */
+export function cbor(): PolyformPlugin {
   return {
     name: "cbor",
 
-    parse: (input: Uint8Array) => {
+    parse: (input: string | Uint8Array) => {
       try {
         const vanillaGraph = decode(input);
         return fromNative(vanillaGraph);
