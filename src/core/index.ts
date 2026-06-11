@@ -1,5 +1,5 @@
 /**
- * Polyform – A minimalist data conversion framework for text and binary formats
+ * Polyform – A minimalist data conversion library for text and binary formats
  * Copyright (C) 2026 Pelle Stormark
  *
  * This program is free software: you can redistribute it and/or modify

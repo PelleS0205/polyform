@@ -1,6 +1,6 @@
 # Polyform
 
-Polyform is a minimalist data conversion framework for text and binary formats
+Polyform is a minimalist data conversion library for text and binary formats
 
 ## Features
 

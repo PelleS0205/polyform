@@ -2,7 +2,7 @@
   "name": "polyform",
   "version": "0.1.0",
   "type": "module",
-  "description": "A minimalist data conversion framework for text and binary formats.",
+  "description": "A minimalist data conversion library for text and binary formats.",
   "main": ".dist/core/index.mjs",
   "types": ".dist/core/index.mts",
   "files": [
@@ -27,7 +27,7 @@
     }
   },
   "scripts": {
-    "build": "tsdown",
+    "build": "tsdown && cp -r dist package.json ../json-studio/local_modules/polyform/",
     "prepublishOnly": "pnpm build"
   },
   "keywords": [],
