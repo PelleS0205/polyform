@@ -1,6 +1,6 @@
 {
   "name": "polyform-tools",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "type": "module",
   "description": "A minimalist data conversion library for text and binary formats.",
   "main": ".dist/core/index.mjs",
