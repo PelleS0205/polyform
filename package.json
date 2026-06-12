@@ -34,7 +34,22 @@
     "build": "tsdown",
     "prepublishOnly": "pnpm build"
   },
-  "keywords": [],
+  "keywords": [
+    "data-conversion",
+    "binary-parser",
+    "text-encoder",
+    "serialization",
+    "deserialization",
+    "uint8array",
+    "arraybuffer",
+    "buffer-utils",
+    "codec",
+    "minimalist",
+    "zero-dependency",
+    "lightweight",
+    "isomorphic",
+    "typescript"
+  ],
   "author": "Pelle Stormark",
   "devEngines": {
     "packageManager": {
