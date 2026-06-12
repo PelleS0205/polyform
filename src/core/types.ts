@@ -53,10 +53,3 @@ export interface PolyformPlugin {
   parse?: ParserFn;
   serialize?: SerializerFn;
 }
-
-export type FormatMap = {
-  json: { in: string; out: string };
-  cbor: { in: Uint8Array; out: Uint8Array };
-  yaml: { in: string; out: string };
-  // add other built-ins...
-};
