@@ -13,7 +13,7 @@ Polyform is a minimalist data conversion library for text and binary formats
 Install Polyform and its companion parsers via npm:
 
 ```bash
-npm install polyform
+npm install polyform-tools
 
 ## Documentation
 
