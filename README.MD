@@ -1,6 +1,6 @@
 # Polyform
 
-Polyform is a minimalist data conversion library for text and binary formats
+Polyform is a minimalist data conversion library for text and binary formats.
 
 ## Features
 
@@ -14,14 +14,16 @@ Install Polyform and its companion parsers via npm:
 
 ```bash
 npm install polyform-tools
+```
 
 ## Documentation
 
 Example:
 
 ```ts
-import { convert, use } from "polyform/core";
-import { json, yaml } from "polyform/formats";
+import { convert, use } from "polyform-tools";
+import { json } from "polyform-tools/formats/json";
+import { yaml } from "polyform-tools/formats/yaml";
 
 use(json());
 use(yaml());
