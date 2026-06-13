@@ -29,6 +29,10 @@
     "./formats/csv": {
       "types": "./dist/formats/csv.d.mts",
       "import": "./dist/formats/csv.mjs"
+    },
+    "./formats/xml": {
+      "types": "./dist/formats/xml.d.mts",
+      "import": "./dist/formats/xml.mjs"
     }
   },
   "scripts": {
@@ -67,6 +71,8 @@
     "cbor2": "^2.3.0",
     "csv-parse": "^6.2.1",
     "csv-stringify": "^6.7.0",
+    "fast-xml-builder": "^1.2.0",
+    "fast-xml-parser": "^5.8.0",
     "yaml": "^2.9.0"
   }
 }

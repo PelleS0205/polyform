@@ -7,6 +7,7 @@ export default defineConfig({
     "formats/yaml": "src/formats/yaml.ts",
     "formats/cbor": "src/formats/cbor.ts",
     "formats/csv": "src/formats/csv.ts",
+    "formats/xml": "src/formats/xml.ts",
   },
   format: ["esm"],
   outExtensions: () => ({ js: ".mjs", dts: ".d.mts" }),

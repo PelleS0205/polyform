@@ -4,16 +4,16 @@ Polyform is a minimalist data conversion library for text and binary formats.
 
 ## Features
 
-* **Format Agnostic:** Out-of-the-box support for JSON, YAML, and CBOR.
-* **Fluent Chaining API:** Clean, intuitive syntax using convert(data).from('json').to('cbor').
+* **Format Agnostic:** Out-of-the-box support for JSON, YAML, CSV/TSV, XML, and CBOR.
+* **Fluent Chaining API:** Clean, intuitive syntax.
 * **Pluggable Registry:** Simple, decoupled plugin system allowing registration of custom parsers and serializers in just a few lines of code.
 
 ## Installation
 
-Install Polyform and its companion parsers via npm:
+Install Polyform via npm:
 
 ```bash
-npm install polyform-tools
+npm i polyform-tools
 ```
 
 ## Documentation
