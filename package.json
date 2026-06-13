@@ -3,6 +3,7 @@
   "version": "0.2.1",
   "type": "module",
   "description": "A minimalist data conversion library for text and binary formats.",
+  "license": "GPL-3.0-or-later OR LicenseRef-Commercial",
   "main": ".dist/core/index.mjs",
   "types": ".dist/core/index.mts",
   "files": [
