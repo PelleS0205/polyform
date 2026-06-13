@@ -29,7 +29,7 @@ export interface CsvOptions {
 /**
  * Creates a CSV format plugin for the Polyform pipeline.
  *
- *  * @returns A configured PolyformPlugin instance for CSV data.
+ * @returns A configured PolyformPlugin instance for CSV data.
  */
 export function csv(pluginOptions: CsvOptions = {}): PolyformPlugin {
   const delimiter = pluginOptions.delimiter ?? ",";

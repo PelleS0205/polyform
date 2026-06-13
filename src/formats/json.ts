@@ -8,6 +8,7 @@ export interface JsonOptions {
   /**
    * Number of spaces (or a specific string like "\t") to use for
    * indentation during the stringification phase.
+   * @default 2
    */
   indent?: number | string;
 }
