@@ -7,7 +7,12 @@
     "moduleResolution": "NodeNext",
     "strict": true,
     "skipLibCheck": true,
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "baseUrl": ".",
+    "paths": {
+      "polyform-tools": ["src/index.ts"],
+      "polyform-tools/*": ["src/*"]
+    }
   },
   "include": ["src/**/*"]
 }
