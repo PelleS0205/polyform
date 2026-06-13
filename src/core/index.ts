@@ -58,7 +58,7 @@ export function convert(input: string | Uint8Array) {
          * @param targetFormat The format you want to convert into.
          * @returns A strictly typed string or Uint8Array based on the target.
          */
-        to(targetFormat: string): string | Uint8Array {
+        to<T extends string | Uint8Array>(targetFormat: string): T {
           const parser = parsers.get(sourceFormat);
 
           const serializer = serializers.get(targetFormat);
@@ -84,7 +84,7 @@ export function convert(input: string | Uint8Array) {
           }
 
           try {
-            return serializer(intermediateAST);
+            return serializer(intermediateAST) as T;
           } catch (e) {
             const error = e as Error;
             throw new PolyformSerializeError(targetFormat, error);
