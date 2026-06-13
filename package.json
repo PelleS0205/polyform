@@ -1,6 +1,6 @@
 {
   "name": "polyform-tools",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "type": "module",
   "description": "A minimalist data conversion library for text and binary formats.",
   "license": "GPL-3.0-or-later OR LicenseRef-Commercial",
