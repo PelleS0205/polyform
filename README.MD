@@ -38,4 +38,4 @@ This project is licensed under the GNU General Public License v3.0 – see the L
 
 ### Commercial Use
 
-This project is dual-licensed. If your organization requires a commercial license to bypass the open-source requirements of the GPLv3, please open a private inquiry via **GitHub Discussions**.
+This project is dual-licensed. If your organization requires a commercial license to bypass the open-source requirements of the GPLv3, please send a request to support@claritytechnologies.net.
